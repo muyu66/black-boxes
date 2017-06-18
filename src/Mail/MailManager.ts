@@ -5,7 +5,7 @@ import { IMailEngine, SendMailOptions } from '../Interface/IMail';
 import { IConfigManager } from '../Interface/IConfig';
 
 import 'reflect-metadata';
-import { TYPES, FACTORYS } from '../Interface/Map';
+import { TYPES, FACTORYS, RELATIONS } from '../Interface/Map';
 
 @injectable()
 export class MailManager implements IMailEngine {
@@ -15,7 +15,7 @@ export class MailManager implements IMailEngine {
 
     private engine: () => IMailEngine;
 
-    constructor( @inject(FACTORYS.FIMailEngine) engine: (engine: string) => () => IMailEngine) {
+    constructor( @inject(RELATIONS.FIMailEngine) engine: (engine: string) => () => IMailEngine) {
         const engine_name = this.config.get('mail.using');
 
         this.engine = engine(engine_name);

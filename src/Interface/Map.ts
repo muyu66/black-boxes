@@ -9,17 +9,22 @@ const TYPES = {
 };
 
 const FACTORYS = {
+    FIAmqp: Symbol('FIAmqp'),
+    FIMail: Symbol('FIMail'),
+};
+
+const RELATIONS = {
     FIAmqpEngine: 'Factory<IAmqpEngine>',
     FIMailEngine: 'Factory<IMailEngine>',
 };
 
 interface Provider {
-    type?: symbol;
-    instance: { new (...args: any[]) };
+    type?: symbol | string;
+    instance?: { new (...args: any[]) };
     singleton?: boolean;
     factory_type?: string;
     target_name?: string;
     to_self?: boolean;
 }
 
-export { TYPES, FACTORYS, Provider };
+export { TYPES, FACTORYS, RELATIONS, Provider };

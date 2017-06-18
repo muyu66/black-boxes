@@ -18,7 +18,12 @@ export class Ioc {
                     continue;
                 }
                 if (register.factory_type) {
-                    container.bind(register.factory_type).toFactory((context) => { return (named: string) => () => { return context.container.getNamed(register.type, named); }; });
+                    container.bind(register.factory_type).toFactory((context) => {
+                        return (named: string) => () => {
+                            let engine = context.container.getNamed(register.type, named);
+                            return engine;
+                        };
+                    });
                     continue;
                 }
 
@@ -37,11 +42,11 @@ export class Ioc {
         this.container = container;
     }
 
-    get() {
+    public get() {
         return this.container;
     }
 
-    resolve<T>(type: interfaces.ServiceIdentifier<T>) {
+    public resolve<T>(type: interfaces.ServiceIdentifier<T>) {
         const instance = this.container.get(type);
 
         return instance;

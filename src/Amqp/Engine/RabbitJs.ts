@@ -12,20 +12,21 @@ import * as amqp from 'rabbit.js';
 @injectable()
 export class RabbitJs implements IAmqpEngine {
 
-    @inject(TYPES.IConfigManager)
-    private config: IConfigManager;
-
     private ct: amqp.Context;
     private channel_name: string;
 
-    constructor() {
-        const address = this.config.get('amqp.rabbit_js');
+    constructor( @inject(TYPES.IConfigManager) config: IConfigManager) {
+        const address = config.get('amqp.rabbit_js');
 
         this.ct = amqp.createContext(address);
     }
 
     public setChannel(channel_name: string): void {
         this.channel_name = channel_name;
+    }
+
+    public getChannel(): string {
+        return this.channel_name;
     }
 
     public push(data: object): void {
