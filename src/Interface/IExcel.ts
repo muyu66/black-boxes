@@ -1,7 +1,9 @@
 export interface IExcelManager {
-    setFile(file_name: string): void;
+    get(): ExcelSheet[];
 
-    output(datas: { name: string, data: any[] }[], options: { '!merges'?: object, '!cols'?: object }): Buffer;
+    input(source: string | ExcelSheet[]): void;
+
+    output(datas: ExcelSheet[], options?: { '!merges'?: object, '!cols'?: object }): Buffer;
 
     getSheets(empty?: undefined): ExcelSheet;
     getSheets(no: number): ExcelSheet;
@@ -13,8 +15,6 @@ export interface IExcelManager {
     getSheetHead(sheet: ExcelSheet, rules: object[]): string[];
 
     getSheetBody(sheet: ExcelSheet): string[][];
-
-    convertField(rules: object[], names: string[]): string[];
 
     getArray(sheet: ExcelSheet, table_head?: string[], table_body?: string[][]): object[];
 }

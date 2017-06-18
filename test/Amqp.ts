@@ -16,3 +16,9 @@ test('getChannel & setChannel', t => {
 
     t.is(Amqp().getChannel(), 'HANDLE');
 });
+
+test('push', t => {
+    Amqp().setChannel('HANDLE');
+    Amqp().push({ test: 'test' });
+    t.pass();
+});

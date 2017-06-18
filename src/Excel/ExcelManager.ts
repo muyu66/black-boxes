@@ -13,14 +13,16 @@ export class ExcelManager implements IExcelManager {
 
     private sheets: ExcelSheet[];
 
-    constructor(file_name?: string) {
-        if (file_name) {
-            this.sheets = xlsx.parse(file_name);
+    public input(source: string | ExcelSheet[]): void {
+        if (typeof source === 'string') {
+            this.sheets = xlsx.parse(source);
+        } else {
+            this.sheets = source;
         }
     }
 
-    public setFile(file_name: string): void {
-        this.sheets = xlsx.parse(file_name);
+    public get(): ExcelSheet[] {
+        return this.sheets;
     }
 
     /**
@@ -32,7 +34,7 @@ export class ExcelManager implements IExcelManager {
      *
      * @memberof Excel
      */
-    output(datas: { name: string, data: any[] }[], options: { '!merges'?: object, '!cols'?: object }): Buffer {
+    public output(datas: ExcelSheet[], options?: { '!merges'?: object, '!cols'?: object }): Buffer {
         return xlsx.build(datas, options);
     }
 
@@ -59,7 +61,7 @@ export class ExcelManager implements IExcelManager {
      * 获取指定 Sheet 的表头
      *
      * @param {ExcelSheet} sheet
-     * @param {object[]} [rules=[]] 转换表头时用
+     * @param {object[]} [rules=[{'中文名':'对应英文名'}]] 转换表头时用
      * @returns {string[]}
      *
      * @memberof Excel
@@ -73,7 +75,7 @@ export class ExcelManager implements IExcelManager {
         return _.tail(sheet.data);
     }
 
-    convertField(rules: object[], names: string[]): string[] {
+    private convertField(rules: object[], names: string[]): string[] {
         if (!_.isArray(names)) {
             names = [names];
         }

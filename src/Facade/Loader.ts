@@ -10,6 +10,9 @@ import { Facade } from './Facade';
 import { IEncrypter } from '../Interface/IEncryption';
 import { IConfigManager } from '../Interface/IConfig';
 import { IAmqpEngine, FAmqp } from '../Interface/IAmqp';
+import { IAuthManager } from '../Interface/IAuth';
+import { IDatabaseManager } from '../Interface/IDatabase';
+import { IExcelManager } from '../Interface/IExcel';
 
 function Encryption() {
     return <IEncrypter>Facade.getIoc().resolve(TYPES.IEncrypter);
@@ -26,4 +29,16 @@ function Amqp() {
     return AmqpFactory().createEngine();
 }
 
-export { Encryption, Config, Amqp };
+function Auth() {
+    return <IAuthManager>Facade.getIoc().resolve(TYPES.IAuthManager);
+}
+
+function Database() {
+    return <IDatabaseManager>Facade.getIoc().resolve(TYPES.IDatabaseManager);
+}
+
+function Excel() {
+    return <IExcelManager>Facade.getIoc().resolve(TYPES.IExcelManager);
+}
+
+export { Encryption, Config, Amqp, Auth, Database, Excel };

@@ -16,7 +16,7 @@ export class RabbitJs implements IAmqpEngine {
     private channel_name: string;
 
     constructor( @inject(TYPES.IConfigManager) config: IConfigManager) {
-        const address = config.get('amqp.rabbit_js');
+        const address = config.get('amqp.rabbit_js.address');
 
         this.ct = amqp.createContext(address);
     }

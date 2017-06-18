@@ -1,15 +1,18 @@
-import { TYPES } from '../Interface/Map';
+import { TYPES, Provider } from '../Interface/Map';
 import { ExcelManager } from './ExcelManager';
 
 export class ExcelProvider {
 
     static register() {
-        return [
+        const providers: Provider[] = [
             {
                 type: TYPES.IExcelManager,
                 instance: ExcelManager,
+                singleton: true,
             }
         ];
+
+        return providers;
     }
 
 }
