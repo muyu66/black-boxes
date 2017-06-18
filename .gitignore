@@ -5,5 +5,3 @@ node_modules
 .history
 build
 .env.json
-coverage
-.nyc_output
