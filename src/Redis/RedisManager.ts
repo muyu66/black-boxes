@@ -59,15 +59,13 @@ export interface RedisClientAddition extends NodeRedis.RedisClient {
     getCount(pattern: string): Promise<number>;
 }
 
+@injectable()
 export class RedisManager {
-
-    @inject(TYPES.IConfigManager)
-    private config: IConfigManager;
 
     private redis: RedisClientAddition;
 
-    constructor() {
-        let { host, port, db, auth_pass, prefix }: any = this.config.get('redis');
+    constructor( @inject(TYPES.IConfigManager) config: IConfigManager) {
+        let { host, port, db, auth_pass, prefix }: any = config.get('redis');
         let client_opts: NodeRedis.ClientOpts = {
             host: host,
             port: port,

@@ -57,7 +57,7 @@ export class Validator {
                 // len:1:2 => v[0]:v[1]:v[2] 以此类推
                 // min 4 max 10 意味着 4 <= i <= 10
                 case 'len':
-                    if (!_.inRange(Number(value), Number(v[1]), Number(v[2]) + 1)) {
+                    if (!_.inRange(Number(value.length), Number(v[1]), Number(v[2]) + 1)) {
                         throw new ValidationException(rule_name, { field: field_name });
                     }
                     break;

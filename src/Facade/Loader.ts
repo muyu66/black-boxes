@@ -5,7 +5,7 @@ import { TYPES, FACTORYS } from '../Interface/Map';
 import { Facade } from './Facade';
 
 /**
- * 各种 Facade
+ * 各种 Facade 的接口
  */
 import { IEncrypter } from '../Interface/IEncryption';
 import { IConfigManager } from '../Interface/IConfig';
@@ -14,6 +14,14 @@ import { IAuthManager } from '../Interface/IAuth';
 import { IDatabaseManager } from '../Interface/IDatabase';
 import { IExcelManager } from '../Interface/IExcel';
 import { IMailEngine, FMail } from '../Interface/IMail';
+
+/**
+ * 各种 Facade 的实例
+ */
+import { PaginateManager } from '../Paginate/PaginateManager';
+import { RedisManager } from '../Redis/RedisManager';
+import { Validator } from '../Validation/Validator';
+import { Function } from '../Support/Function';
 
 function Encryption() {
     return <IEncrypter>Facade.getIoc().resolve(TYPES.IEncrypter);
@@ -49,4 +57,23 @@ function Mail() {
     return MailFactory().createEngine();
 }
 
-export { Encryption, Config, Amqp, Auth, Database, Excel, Mail };
+function Paginate() {
+    return <PaginateManager>Facade.getIoc().resolve(PaginateManager);
+}
+
+function Redis() {
+    return <RedisManager>Facade.getIoc().resolve(RedisManager);
+}
+
+function Validation() {
+    return <Validator>Facade.getIoc().resolve(Validator);
+}
+
+function $() {
+    return <Function>Facade.getIoc().resolve(Function);
+}
+
+export {
+    Encryption, Config, Amqp, Auth, Database, Excel, Mail, Paginate, Redis, Validation,
+    $
+};

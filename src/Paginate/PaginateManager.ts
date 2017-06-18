@@ -17,15 +17,20 @@ export class PaginateManager {
     /**
      * Model 分页器
      *
-     * @static
      * @template T
-     * @param {{ model: T[], page: number, page_total: number }} source
-     * @param {string} url
-     * @returns {Core.Paginate<T>}
+     * @param {T[]} source 已经从 Model 里切分过了
+     * @param {number} page_total 从整个 Model 里拿到的 总共数量
+     * @param {number} page
+     * @param {string} [url]
+     * @returns {Paginate<T>}
      *
-     * @memberof Paginate
+     * @memberof PaginateManager
      */
-    public render<T>(source: T[], page_total: number, page: number, url: string): Paginate<T> {
+    public render<T>(source: T[], page_total: number, page: number, url?: string): Paginate<T> {
+        if (!url) {
+            url = 'http://localhost:3000';
+        }
+
         const last_page = _.floor(page_total / source.length);
         const last_page_fix = this.$.isFloat(page_total / source.length) ? 1 : 0;
 
@@ -65,8 +70,12 @@ export class PaginateManager {
      * @memberOf Paginate
      * @updateTime 1493286014651
      */
-    public custom<T>(sources: T[], per_page: number = 15, i: number = 1, url: string): Paginate<T> {
+    public custom<T>(sources: T[], per_page: number = 15, i: number = 1, url?: string): Paginate<T> {
         i = Number(i); // i 可能是传参过来的字符串
+
+        if (!url) {
+            url = 'http://localhost:3000';
+        }
 
         const last_page = _.floor(sources.length / per_page);
         const last_page_fix = this.$.isFloat(sources.length / per_page) ? 1 : 0;
