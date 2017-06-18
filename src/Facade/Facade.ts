@@ -4,11 +4,11 @@ export class Facade {
 
     private static ioc: Ioc;
 
-    static getIoc() {
-        if (!Facade.ioc) {
-            Facade.ioc = new Ioc();
-        }
+    static setIoc(ioc: Ioc): void {
+        Facade.ioc = ioc;
+    }
 
+    static getIoc(): Ioc {
         return Facade.ioc;
     }
 
