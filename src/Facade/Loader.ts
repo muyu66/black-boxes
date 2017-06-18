@@ -13,6 +13,7 @@ import { IAmqpEngine, FAmqp } from '../Interface/IAmqp';
 import { IAuthManager } from '../Interface/IAuth';
 import { IDatabaseManager } from '../Interface/IDatabase';
 import { IExcelManager } from '../Interface/IExcel';
+import { IMailEngine, FMail } from '../Interface/IMail';
 
 function Encryption() {
     return <IEncrypter>Facade.getIoc().resolve(TYPES.IEncrypter);
@@ -41,4 +42,11 @@ function Excel() {
     return <IExcelManager>Facade.getIoc().resolve(TYPES.IExcelManager);
 }
 
-export { Encryption, Config, Amqp, Auth, Database, Excel };
+function MailFactory() {
+    return <FMail>Facade.getIoc().resolve(FACTORYS.FIMail);
+}
+function Mail() {
+    return MailFactory().createEngine();
+}
+
+export { Encryption, Config, Amqp, Auth, Database, Excel, Mail };

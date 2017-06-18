@@ -48,25 +48,29 @@ import 'reflect-metadata';
 @injectable()
 export class NodeMailer implements IMailEngine {
 
-    @inject(TYPES.IConfigManager)
-    private config: IConfigManager;
+    private transporter: Mailer.Transporter;
 
-    private account;
+    constructor( @inject(TYPES.IConfigManager) config: IConfigManager) {
+        const account = <AuthOptions>config.get('mail.node_mailer');
 
-    constructor() {
-        const account = <AuthOptions>this.config.get('email.node_mailer');
-        this.account = account;
-    }
-
-    async send(mail: Mailer.SendMailOptions): Promise<true> {
         const transporter = Mailer.createTransport({
             service: 'gmail',
-            auth: this.account,
+            auth: account,
         });
 
-        await transporter.sendMail(mail);
+        this.transporter = transporter;
+    }
+
+    async test(): Promise<true> {
+        await this.transporter.verify();
 
         return true;
     }
-}
 
+    async send(mail: Mailer.SendMailOptions): Promise<true> {
+        await this.transporter.sendMail(mail);
+
+        return true;
+    }
+
+}
