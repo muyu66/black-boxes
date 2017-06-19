@@ -9,6 +9,7 @@ import { MailProvider } from '../Mail/MailProvider';
 import { PaginateProvider } from '../Paginate/PaginateProvider';
 import { RedisProvider } from '../Redis/RedisProvider';
 import { ValidatorProvider } from '../Validation/ValidatorProvider';
+import { PinyinProvider } from '../Support/PinyinProvider';
 
 const providers = [
     EncryptionProvider,
@@ -22,6 +23,7 @@ const providers = [
     PaginateProvider,
     RedisProvider,
     ValidatorProvider,
+    PinyinProvider,
 ];
 
 export { providers };

@@ -14,6 +14,7 @@ import { IAuthManager } from '../Interface/IAuth';
 import { IDatabaseManager } from '../Interface/IDatabase';
 import { IExcelManager } from '../Interface/IExcel';
 import { IMailEngine, FMail } from '../Interface/IMail';
+import { IPinyin } from '../Interface/IPinyin';
 
 /**
  * 各种 Facade 的实例
@@ -73,7 +74,11 @@ function $() {
     return <Function>Facade.getIoc().resolve(Function);
 }
 
+function Pinyin() {
+    return <IPinyin>Facade.getIoc().resolve(TYPES.IPinyin);
+}
+
 export {
     Encryption, Config, Amqp, Auth, Database, Excel, Mail, Paginate, Redis, Validation,
-    $
+    $, Pinyin
 };

@@ -6,6 +6,7 @@ const TYPES = {
     IAmqpEngine: Symbol('IAmqpEngine'),
     IMailEngine: Symbol('IMailEngine'),
     IExcelManager: Symbol('IExcelManager'),
+    IPinyin: Symbol('IPinyin'),
 };
 
 const FACTORYS = {
