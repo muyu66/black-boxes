@@ -101,10 +101,10 @@ export class Function {
      *
      * @memberof $
      */
-    objectToArray(obj: object): { name: string, id: number }[] {
+    objectToArray(object: Object): { name: string, id: number }[] {
         const res: { name: string, id: number }[] = [];
-        for (const key in obj) {
-            res.push({ id: Number(key), name: obj[key] });
+        for (const key in object) {
+            res.push({ id: Number(key), name: object[key] });
         }
         return res;
     }

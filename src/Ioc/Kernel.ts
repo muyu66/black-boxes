@@ -10,6 +10,7 @@ import { PaginateProvider } from '../Paginate/PaginateProvider';
 import { RedisProvider } from '../Redis/RedisProvider';
 import { ValidatorProvider } from '../Validation/ValidatorProvider';
 import { PinyinProvider } from '../Support/PinyinProvider';
+import { ServerProvider } from '../Server/ServerProvider';
 
 const providers = [
     EncryptionProvider,
@@ -24,6 +25,7 @@ const providers = [
     RedisProvider,
     ValidatorProvider,
     PinyinProvider,
+    ServerProvider,
 ];
 
 export { providers };

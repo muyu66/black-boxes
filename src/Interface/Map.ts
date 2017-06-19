@@ -4,6 +4,7 @@ const TYPES = {
     IAuthManager: Symbol('IAuthManager'),
     IConfigManager: Symbol('IConfigManager'),
     IAmqpEngine: Symbol('IAmqpEngine'),
+    IServerEngine: Symbol('IServerEngine'),
     IMailEngine: Symbol('IMailEngine'),
     IExcelManager: Symbol('IExcelManager'),
     IPinyin: Symbol('IPinyin'),
@@ -12,11 +13,13 @@ const TYPES = {
 const FACTORYS = {
     FIAmqp: Symbol('FIAmqp'),
     FIMail: Symbol('FIMail'),
+    FIServer: Symbol('FIServer'),
 };
 
 const RELATIONS = {
     FIAmqpEngine: 'Factory<IAmqpEngine>',
     FIMailEngine: 'Factory<IMailEngine>',
+    FIServerEngine: 'Factory<FIServerEngine>',
 };
 
 interface Provider {
