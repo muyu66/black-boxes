@@ -15,7 +15,12 @@ export { Controller as Route, Get, Post, Patch, Put, Delete } from 'inversify-ex
 export { inject as Import, injectable as Export } from 'inversify';
 
 /**
- * 导出各种 Facade
+ * 导出 Facade 核心
+ */
+export { Facade } from './Facade/Facade';
+
+/**
+ * 导出各种 Facade 扩展
  */
 export * from './Facade/Loader';
 
