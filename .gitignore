@@ -3,5 +3,6 @@ node_modules
 .idea
 .vscode
 .history
-build
 .env.json
+
+build
