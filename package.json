@@ -1,13 +1,16 @@
 {
-  "name": "framework",
-  "version": "0.1.0",
-  "description": "",
+  "name": "box-framework",
+  "version": "0.1.1",
+  "description": "A NODEJS IoC framework based on Typescript For Web Artisans",
   "main": "index.js",
   "types": "./index.d.ts",
   "scripts": {
     "test": "tsc && ava"
   },
-  "author": "",
+  "engines": {
+    "node": "6.10.x"
+  },
+  "author": "Zhou Yu",
   "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.0.36",
