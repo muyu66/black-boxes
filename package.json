@@ -1,11 +1,12 @@
 {
-  "name": "box-framework",
-  "version": "0.1.2",
+  "name": "black-boxes",
+  "version": "0.1.5",
   "description": "A NODEJS IoC framework based on Typescript For Web Artisans",
-  "main": "index.js",
-  "types": "./index.d.ts",
+  "main": "build/src/Bootstrap.js",
+  "types":"build/src/Bootstrap.d.ts",
   "scripts": {
-    "test": "tsc && ava"
+    "test": "tsc && ava",
+    "build": "tsc -d"
   },
   "engines": {
     "node": "6.10.x"
@@ -22,6 +23,7 @@
     "@types/redis": "^2.6.0",
     "@types/shortid": "^0.0.29",
     "@types/uuid": "^3.0.0",
+    "bluebird": "^3.5.0",
     "express": "^4.15.3",
     "inversify": "^4.1.1",
     "inversify-express-utils": "^3.5.2",
@@ -38,6 +40,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.6",
     "@types/supertest": "^2.0.1",
     "ava": "^0.19.1",
     "supertest": "^3.0.0",
