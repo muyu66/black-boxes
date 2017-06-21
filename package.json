@@ -1,9 +1,9 @@
 {
   "name": "black-boxes",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "A NODEJS IoC framework based on Typescript For Web Artisans",
-  "main": "build/src/Bootstrap.js",
-  "types":"build/src/Bootstrap.d.ts",
+  "main": "lib/src/Bootstrap.js",
+  "types":"lib/src/Bootstrap.d.ts",
   "scripts": {
     "test": "tsc && ava",
     "build": "tsc -d"
