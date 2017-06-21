@@ -1,15 +1,15 @@
-import { Ioc } from '../Ioc/Ioc';
+import { Kernel } from '../Ioc/Kernel';
 
 export class Facade {
 
-    private static ioc: Ioc;
+    private static kernel: Kernel;
 
-    static setIoc(ioc: Ioc): void {
-        Facade.ioc = ioc;
+    static set(ioc: Kernel): void {
+        Facade.kernel = ioc;
     }
 
-    static getIoc(): Ioc {
-        return Facade.ioc;
+    static get(): Kernel {
+        return Facade.kernel;
     }
 
 }

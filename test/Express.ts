@@ -1,5 +1,8 @@
 import test from 'ava';
-import { Ioc } from '../src/Ioc/Ioc';
+
+import { Kernel } from '../src/Ioc/Kernel';
+import { Service } from '../src/Ioc/Service';
+
 import { Facade } from '../src/Facade/Facade';
 import * as _ from 'lodash';
 import * as fs from 'fs';
@@ -8,26 +11,24 @@ import { Container, injectable, inject } from 'inversify';
 import { interfaces, Controller, InversifyExpressServer, TYPE, Get } from 'inversify-express-utils';
 import * as supertest from 'supertest';
 
-import { Server } from '../src/Facade/Loader';
+import { Server, Pinyin } from '../src/Facade/Loader';
 
 test.before('init Facade', t => {
-    const ioc = new Ioc();
-    Facade.setIoc(ioc);
+    const kernel = new Kernel();
+    Facade.set(kernel);
 });
-
-const SERVICE1 = Symbol('Service1');
 
 @injectable()
 class Service1 {
     public hello() {
-        return 'hello';
+        return Pinyin().convert('德语');
     }
 }
 
 @injectable()
 @Controller('/')
 class Controller1 {
-    constructor( @inject(SERVICE1) private service: Service1) { }
+    constructor( @inject(Service1.name) private service: Service1) { }
     @Get('/')
     public getHello() {
         return this.service.hello();
@@ -35,10 +36,10 @@ class Controller1 {
 }
 
 test('set & get', async t => {
-    const container = new Container();
-    container.bind(TYPE.Controller).to(Controller1).whenTargetNamed('Controller1');
-    container.bind(SERVICE1).to(Service1);
-    Server().set(container);
+    const service = new Service();
+    service.bindController(Controller1);
+    service.bindService(Service1);
+    Server().set(service.get());
 
     const server = Server().get();
     const app = <Application>server.build();
@@ -48,6 +49,6 @@ test('set & get', async t => {
 
     await request.get('/')
         .expect(function (res) {
-            t.is(res.text, 'hello');
+            t.is(res.text, 'deyu');
         });
 });

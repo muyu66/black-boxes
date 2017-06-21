@@ -26,61 +26,61 @@ import { Validator } from '../Validation/Validator';
 import { Function } from '../Support/Function';
 
 function Encryption() {
-    return <IEncrypter>Facade.getIoc().resolve(TYPES.IEncrypter);
+    return <IEncrypter>Facade.get().resolve(TYPES.IEncrypter);
 }
 
 function Config() {
-    return <IConfigManager>Facade.getIoc().resolve(TYPES.IConfigManager);
+    return <IConfigManager>Facade.get().resolve(TYPES.IConfigManager);
 }
 
 function AmqpFactory() {
-    return <FAmqp>Facade.getIoc().resolve(FACTORYS.FIAmqp);
+    return <FAmqp>Facade.get().resolve(FACTORYS.FIAmqp);
 }
 function Amqp() {
     return AmqpFactory().createEngine();
 }
 
 function Auth() {
-    return <IAuthManager>Facade.getIoc().resolve(TYPES.IAuthManager);
+    return <IAuthManager>Facade.get().resolve(TYPES.IAuthManager);
 }
 
 function Database() {
-    return <IDatabaseManager>Facade.getIoc().resolve(TYPES.IDatabaseManager);
+    return <IDatabaseManager>Facade.get().resolve(TYPES.IDatabaseManager);
 }
 
 function Excel() {
-    return <IExcelManager>Facade.getIoc().resolve(TYPES.IExcelManager);
+    return <IExcelManager>Facade.get().resolve(TYPES.IExcelManager);
 }
 
 function MailFactory() {
-    return <FMail>Facade.getIoc().resolve(FACTORYS.FIMail);
+    return <FMail>Facade.get().resolve(FACTORYS.FIMail);
 }
 function Mail() {
     return MailFactory().createEngine();
 }
 
 function Paginate() {
-    return <PaginateManager>Facade.getIoc().resolve(PaginateManager);
+    return <PaginateManager>Facade.get().resolve(PaginateManager);
 }
 
 function Redis() {
-    return <RedisManager>Facade.getIoc().resolve(RedisManager);
+    return <RedisManager>Facade.get().resolve(RedisManager);
 }
 
 function Validation() {
-    return <Validator>Facade.getIoc().resolve(Validator);
+    return <Validator>Facade.get().resolve(Validator);
 }
 
 function $() {
-    return <Function>Facade.getIoc().resolve(Function);
+    return <Function>Facade.get().resolve(Function);
 }
 
 function Pinyin() {
-    return <IPinyin>Facade.getIoc().resolve(TYPES.IPinyin);
+    return <IPinyin>Facade.get().resolve(TYPES.IPinyin);
 }
 
 function ServerFactory() {
-    return <FServer>Facade.getIoc().resolve(FACTORYS.FIServer);
+    return <FServer>Facade.get().resolve(FACTORYS.FIServer);
 }
 function Server() {
     return ServerFactory().createEngine();

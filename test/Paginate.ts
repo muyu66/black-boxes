@@ -1,5 +1,5 @@
 import test from 'ava';
-import { Ioc } from '../src/Ioc/Ioc';
+import { Kernel } from '../src/Ioc/Kernel';
 import { Facade } from '../src/Facade/Facade';
 import * as _ from 'lodash';
 import * as fs from 'fs';
@@ -7,8 +7,8 @@ import * as fs from 'fs';
 import { Paginate } from '../src/Facade/Loader';
 
 test.before('init Facade', t => {
-    const ioc = new Ioc();
-    Facade.setIoc(ioc);
+    const kernel = new Kernel();
+    Facade.set(kernel);
 });
 
 test('render', t => {
