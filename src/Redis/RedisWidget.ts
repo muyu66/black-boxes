@@ -1,6 +1,6 @@
 import { RedisManager } from './RedisManager';
 
-export class RedisProvider {
+export class RedisWidget {
 
     static register() {
         return [

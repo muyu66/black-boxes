@@ -1,7 +1,7 @@
 {
-  "name": "black-boxes",
-  "version": "0.1.10",
-  "description": "A NODEJS IoC framework based on Typescript For Web Artisans",
+  "name": "boxces",
+  "version": "0.0.1",
+  "description": "A NODEJS IoC framework For Web Wizard",
   "main": "build/src/Bootstrap.js",
   "types":"build/src/Bootstrap.d.ts",
   "scripts": {

@@ -28,3 +28,8 @@ export * from './Facade/Loader';
  * 导出 Express 核心
  */
 export { Request, Application as HttpServer } from 'express';
+
+/**
+ * 导出 系统挂件
+ */
+export * from '../src/Ioc/Loader';

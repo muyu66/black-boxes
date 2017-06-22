@@ -1,12 +1,12 @@
-import { TYPES, FACTORYS, RELATIONS, Provider } from '../Interface/Map';
+import { TYPES, FACTORYS, RELATIONS, Widget } from '../Interface/Map';
 import { ServerManager } from './ServerManager';
 import { Express } from './Engine/Express';
 
-export class ServerProvider {
+export class ServerWidget {
 
     static register() {
 
-        const providers: Provider[] = [
+        const widgets: Widget[] = [
             {
                 type: TYPES.IServerEngine,
                 instance: Express,
@@ -23,7 +23,7 @@ export class ServerProvider {
             },
         ];
 
-        return providers;
+        return widgets;
     }
 
 }

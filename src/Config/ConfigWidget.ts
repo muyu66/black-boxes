@@ -1,10 +1,10 @@
-import { TYPES, Provider } from '../Interface/Map';
+import { TYPES, Widget } from '../Interface/Map';
 import { ConfigManager } from './ConfigManager';
 
-export class ConfigProvider {
+export class ConfigWidget {
 
     static register() {
-        const providers: Provider[] = [
+        const widgets: Widget[] = [
             {
                 type: TYPES.IConfigManager,
                 instance: ConfigManager,
@@ -12,7 +12,7 @@ export class ConfigProvider {
             }
         ];
 
-        return providers;
+        return widgets;
     }
 
 }

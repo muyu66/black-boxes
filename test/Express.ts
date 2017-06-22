@@ -11,10 +11,13 @@ import { Container, injectable, inject } from 'inversify';
 import { interfaces, Controller, InversifyExpressServer, TYPE, Get } from 'inversify-express-utils';
 import * as supertest from 'supertest';
 
+import { Widgets } from './config/Widget';
+
 import { Server, Pinyin } from '../src/Facade/Loader';
 
 test.before('init Facade', t => {
     const kernel = new Kernel();
+    kernel.loadWidget(Widgets);
     Facade.set(kernel);
 });
 

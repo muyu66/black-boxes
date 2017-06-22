@@ -3,9 +3,11 @@ import { Kernel } from '../src/Ioc/Kernel';
 import { Facade } from '../src/Facade/Facade';
 
 import { Pinyin } from '../src/Facade/Loader';
+import { Widgets } from './config/Widget';
 
 test.before('init Facade', t => {
     const kernel = new Kernel();
+    kernel.loadWidget(Widgets);
     Facade.set(kernel);
 });
 

@@ -22,7 +22,7 @@ const RELATIONS = {
     FIServerEngine: 'Factory<FIServerEngine>',
 };
 
-interface Provider {
+interface Widget {
     /**
      * 绑定接口至实现
      *
@@ -64,4 +64,4 @@ interface Provider {
     delay?: boolean;
 }
 
-export { TYPES, FACTORYS, RELATIONS, Provider };
+export { TYPES, FACTORYS, RELATIONS, Widget };

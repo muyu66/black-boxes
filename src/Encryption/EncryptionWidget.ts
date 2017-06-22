@@ -1,7 +1,7 @@
 import { TYPES } from '../Interface/Map';
 import { Encrypter } from './Encrypter';
 
-export class EncryptionProvider {
+export class EncryptionWidget {
 
     static register() {
         return [

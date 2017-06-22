@@ -1,12 +1,12 @@
-import { TYPES, FACTORYS, RELATIONS, Provider } from '../Interface/Map';
+import { TYPES, FACTORYS, RELATIONS, Widget } from '../Interface/Map';
 import { MailManager } from './MailManager';
 import { NodeMailer } from './Engine/NodeMailer';
 
-export class MailProvider {
+export class MailWidget {
 
     static register() {
 
-        const providers: Provider[] = [
+        const widgets: Widget[] = [
             {
                 type: TYPES.IMailEngine,
                 instance: NodeMailer,
@@ -23,7 +23,7 @@ export class MailProvider {
             },
         ];
 
-        return providers;
+        return widgets;
     }
 
 }

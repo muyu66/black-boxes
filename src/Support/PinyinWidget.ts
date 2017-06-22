@@ -1,18 +1,18 @@
 import { IPinyin } from '../Interface/IPinyin';
-import { Provider, TYPES } from '../Interface/Map';
+import { Widget, TYPES } from '../Interface/Map';
 import { Pinyin } from './Pinyin';
 
-export class PinyinProvider {
+export class PinyinWidget {
 
     static register() {
-        const providers: Provider[] = [
+        const widgets: Widget[] = [
             {
                 type: TYPES.IPinyin,
                 instance: Pinyin,
             }
         ];
 
-        return providers;
+        return widgets;
     }
 
 }

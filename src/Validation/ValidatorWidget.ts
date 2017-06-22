@@ -1,12 +1,12 @@
-import { Function } from './Function';
+import { Validator } from './Validator';
 
-export class FunctionProvider {
+export class ValidatorWidget {
 
     static register() {
         return [
             {
                 to_self: true,
-                instance: Function,
+                instance: Validator,
             }
         ];
     }

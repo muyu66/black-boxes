@@ -1,6 +1,5 @@
 import { Container, interfaces } from 'inversify';
-import { providers } from './Loader';
-import { Provider } from '../Interface/Map';
+import { Widget } from '../Interface/Map';
 import * as _ from 'lodash';
 
 /**
@@ -21,20 +20,27 @@ export class Kernel {
     private container: Container;
 
     /**
-     * 需要延迟加载 的 服务提供者
+     * 需要延迟加载 的 服务挂件
      *
      * @private
      * @type {Provider[]}
      * @memberof Ioc
      */
-    private delay_providers: Provider[] = [];
+    private delay_widgets: Widget[] = [];
 
     constructor() {
         let container = new Container();
         this.container = container;
+    }
 
-        for (const provider of providers) {
-            const registers: Provider[] = provider.register();
+    /**
+     * 加载挂件
+     *
+     * @memberof Kernel
+     */
+    public loadWidget(Widgets: any[]) {
+        for (const widget of Widgets) {
+            const registers: Widget[] = widget.register();
             for (const register of registers) {
                 this.bind(register);
             }
@@ -50,9 +56,9 @@ export class Kernel {
      *
      * @memberof Ioc
      */
-    private bind(register: Provider): void {
+    private bind(register: Widget): void {
         if (register.delay) {
-            this.delay_providers.push(register);
+            this.delay_widgets.push(register);
             return;
         }
 
@@ -101,14 +107,14 @@ export class Kernel {
         /**
          * 判断是否是 延迟提供者
          */
-        const delay_provider = _.find(this.delay_providers, { type: <string | symbol>type });
+        const delay_provider = _.find(this.delay_widgets, { type: <string | symbol>type });
         if (delay_provider) {
             /**
              * 先绑定, 再解析
              */
             delay_provider.delay = false;
             this.bind(delay_provider);
-            _.remove(this.delay_providers, delay_provider);
+            _.remove(this.delay_widgets, delay_provider);
             instance = this.container.get(delay_provider.type);
         } else {
             /**

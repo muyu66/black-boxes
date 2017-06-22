@@ -1,6 +1,6 @@
 import { PaginateManager } from './PaginateManager';
 
-export class PaginateProvider {
+export class PaginateWidget {
 
     static register() {
         return [

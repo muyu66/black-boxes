@@ -1,7 +1,7 @@
 import { TYPES } from '../Interface/Map';
 import { DatabaseManager } from './DatabaseManager';
 
-export class DatabaseProvider {
+export class DatabaseWidget {
 
     static register() {
         return [

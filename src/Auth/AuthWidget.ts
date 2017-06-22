@@ -1,7 +1,7 @@
 import { TYPES } from '../Interface/Map';
 import { AuthManager } from './AuthManager';
 
-export class AuthProvider {
+export class AuthWidget {
 
     static register() {
         return [

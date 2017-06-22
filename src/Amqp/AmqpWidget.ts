@@ -1,11 +1,11 @@
-import { TYPES, FACTORYS, RELATIONS, Provider } from '../Interface/Map';
+import { TYPES, FACTORYS, RELATIONS, Widget } from '../Interface/Map';
 import { AmqpManager } from './AmqpManager';
 import { RabbitJs } from './Engine/RabbitJs';
 
-export class AmqpProvider {
+export class AmqpWidget {
 
     static register() {
-        const providers: Provider[] = [
+        const widgets: Widget[] = [
             {
                 type: TYPES.IAmqpEngine,
                 instance: RabbitJs,
@@ -22,7 +22,7 @@ export class AmqpProvider {
             },
         ];
 
-        return providers;
+        return widgets;
     }
 
 }

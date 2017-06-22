@@ -1,31 +1,29 @@
-import { EncryptionProvider } from '../Encryption/EncryptionProvider';
-import { DatabaseProvider } from '../Database/DatabaseProvider';
-import { AuthProvider } from '../Auth/AuthProvider';
-import { ConfigProvider } from '../Config/ConfigProvider';
-import { AmqpProvider } from '../Amqp/AmqpProvider';
-import { ExcelProvider } from '../Excel/ExcelProvider';
-import { FunctionProvider } from '../Support/FunctionProvider';
-import { MailProvider } from '../Mail/MailProvider';
-import { PaginateProvider } from '../Paginate/PaginateProvider';
-import { RedisProvider } from '../Redis/RedisProvider';
-import { ValidatorProvider } from '../Validation/ValidatorProvider';
-import { PinyinProvider } from '../Support/PinyinProvider';
-import { ServerProvider } from '../Server/ServerProvider';
+import { EncryptionWidget } from '../Encryption/EncryptionWidget';
+import { DatabaseWidget } from '../Database/DatabaseWidget';
+import { AuthWidget } from '../Auth/AuthWidget';
+import { ConfigWidget } from '../Config/ConfigWidget';
+import { AmqpWidget } from '../Amqp/AmqpWidget';
+import { ExcelWidget } from '../Excel/ExcelWidget';
+import { FunctionWidget } from '../Support/FunctionWidget';
+import { MailWidget } from '../Mail/MailWidget';
+import { PaginateWidget } from '../Paginate/PaginateWidget';
+import { RedisWidget } from '../Redis/RedisWidget';
+import { ValidatorWidget } from '../Validation/ValidatorWidget';
+import { PinyinWidget } from '../Support/PinyinWidget';
+import { ServerWidget } from '../Server/ServerWidget';
 
-const providers = [
-    EncryptionProvider,
-    DatabaseProvider,
-    AuthProvider,
-    ConfigProvider,
-    AmqpProvider,
-    ExcelProvider,
-    FunctionProvider,
-    MailProvider,
-    PaginateProvider,
-    RedisProvider,
-    ValidatorProvider,
-    PinyinProvider,
-    ServerProvider,
-];
-
-export { providers };
+export const SystemWidget = {
+    EncryptionWidget,
+    DatabaseWidget,
+    AuthWidget,
+    ConfigWidget,
+    AmqpWidget,
+    ExcelWidget,
+    FunctionWidget,
+    MailWidget,
+    PaginateWidget,
+    RedisWidget,
+    ValidatorWidget,
+    PinyinWidget,
+    ServerWidget,
+};

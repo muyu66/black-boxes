@@ -1,10 +1,10 @@
-import { TYPES, Provider } from '../Interface/Map';
+import { TYPES, Widget } from '../Interface/Map';
 import { ExcelManager } from './ExcelManager';
 
-export class ExcelProvider {
+export class ExcelWidget {
 
     static register() {
-        const providers: Provider[] = [
+        const widgets: Widget[] = [
             {
                 type: TYPES.IExcelManager,
                 instance: ExcelManager,
@@ -12,7 +12,7 @@ export class ExcelProvider {
             }
         ];
 
-        return providers;
+        return widgets;
     }
 
 }
