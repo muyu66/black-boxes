@@ -1,8 +1,7 @@
 {
     "rulesDirectory": [
         "src",
-        "test",
-        "cli"
+        "test"
     ],
     "rules": {
         "class-name": true,
