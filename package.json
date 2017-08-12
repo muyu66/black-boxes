@@ -1,0 +1,53 @@
+{
+  "name": "boxces",
+  "version": "0.2.0",
+  "description": "A NODEJS IoC framework For Web Wizard",
+  "main": "build/src/Bootstrap.js",
+  "types": "build/src/Bootstrap.d.ts",
+  "scripts": {
+    "test": "tsc && ava",
+    "build": "tsc -d"
+  },
+  "engines": {
+    "node": "6.10.x"
+  },
+  "author": "ZhouYu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "inversify": "^4.1.1",
+    "inversify-express-utils": "^3.5.2",
+    "lodash": "^4.17.4",
+    "mysql": "^2.13.0",
+    "reflect-metadata": "^0.1.10",
+    "shortid": "^2.2.8",
+    "typeorm": "0.0.11",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.36",
+    "@types/inversify-express-utils": "^2.0.0",
+    "@types/lodash": "^4.14.66",
+    "@types/node": "^7.0.31",
+    "@types/shortid": "^0.0.29",
+    "@types/uuid": "^3.0.0",
+    "@types/supertest": "^2.0.1",
+    "ava": "^0.19.1",
+    "supertest": "^3.0.0",
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
+  },
+  "ava": {
+    "files": [
+      "build/test/*.js"
+    ],
+    "source": [
+      "**/*.{js}"
+    ],
+    "match": [
+      "*"
+    ],
+    "failFast": false,
+    "tap": true
+  }
+}

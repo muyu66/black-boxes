@@ -1,0 +1,12 @@
+node_modules/*
+*.log
+.idea
+.vscode
+.history
+.env.json
+
+tsconfig.json
+tslint.json
+src/*
+test/*
+cli/*
