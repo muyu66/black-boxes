@@ -9,6 +9,7 @@ import { Facade } from './Facade';
  */
 import { IServerEngine, FServer } from '../interface/IServer';
 import { IConfigManager } from '../interface/IConfig';
+import { IFileManager } from '../interface/IFile';
 
 /**
  * 各种 Facade 的实例
@@ -24,6 +25,10 @@ function Server() {
     return ServerFactory().createEngine();
 }
 
+function File() {
+    return <IFileManager>Facade.get().resolve(TYPES.IFileManager);
+}
+
 export {
-    Server, Config
+    Server, Config, File
 };

@@ -1,6 +1,7 @@
 const TYPES = {
     IServerEngine: Symbol('IServerEngine'),
     IConfigManager: Symbol('IConfigManager'),
+    IFileManager: Symbol('IFileManager'),
 };
 
 const FACTORYS = {
@@ -29,7 +30,7 @@ interface Widget {
     singleton?: boolean;
     /**
      * 工厂模式的绑定接口至实现
-     * 
+     *
      * @type {string}
      * @memberof Provider
      */

@@ -8,6 +8,7 @@ export const Widgets = [
 
     SystemWidget.ServerWidget,
     SystemWidget.ConfigWidget,
+    SystemWidget.FileWidget,
 
     /**
      * 用户自定义挂件
